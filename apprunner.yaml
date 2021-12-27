@@ -4,7 +4,9 @@ build:
   commands:
     pre-build:
       - yum install -y nodejs npm
-      - cd app1 && npm ci && npm run build
+      - (cd root1 && npm ci && npm run build)
+      - (cd app1 && npm ci && npm run build)
+
     build:
       - pip install pipenv
       - pipenv install --deploy --system

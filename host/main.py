@@ -37,3 +37,4 @@ app = FastAPI(
 app.include_router(api_router, prefix=settings.API_PREFIX)
 
 app.mount("/app1", StaticFiles(directory=f"{settings.APP1_STATIC_BASE}", html=True), name="app1")
+app.mount("/root1", StaticFiles(directory=f"{settings.ROOT1_STATIC_BASE}", html=True), name="root1")
