@@ -1,8 +1,8 @@
 from logging.config import dictConfig
 
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 
+from host.spa_mount import SPAStaticFiles
 from host.api.api import api_router
 from host.config import settings
 
@@ -36,5 +36,5 @@ app = FastAPI(
 
 app.include_router(api_router, prefix=settings.API_PREFIX)
 
-app.mount("/app1", StaticFiles(directory=f"{settings.APP1_STATIC_BASE}", html=True), name="app1")
-app.mount("/root1", StaticFiles(directory=f"{settings.ROOT1_STATIC_BASE}", html=True), name="root1")
+app.mount("/app1", SPAStaticFiles(directory=f"{settings.APP1_STATIC_BASE}"), name="app1")
+app.mount("/root1", SPAStaticFiles(directory=f"{settings.ROOT1_STATIC_BASE}"), name="root1")
