@@ -13,7 +13,7 @@ jobs:
         working-directory: ./app1
         run: |
           npm ci
-          npm run build
+          npm run build -- --baseHref=/${{ github.event.repository.name }}/
 
       - name: Deploy App1 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7

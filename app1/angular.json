@@ -10,13 +10,14 @@
           "strict": true
         }
       },
-      "root": "",
+      "root": "app1",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/app1/",
             "outputPath": "dist/app1",
             "index": "src/index.html",
             "main": "src/main.ts",
