@@ -1,6 +1,7 @@
 from logging.config import dictConfig
 
 from fastapi import FastAPI
+from fastapi.middleware.gzip import GZipMiddleware
 
 from host.spa_mount import SPAStaticFiles
 from host.api.api import api_router
@@ -33,6 +34,7 @@ app = FastAPI(
     version="1.0.0",
     openapi_url=f"{settings.API_PREFIX}/openapi.json",
 )
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 app.include_router(api_router, prefix=settings.API_PREFIX)
 

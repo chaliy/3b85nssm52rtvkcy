@@ -1,5 +1,5 @@
 live:
-	pipenv run uvicorn host.main:app --reload
+	pipenv run uvicorn host.main:app --reload --reload-dir ./host
 
 IMAGE_TAG ?= latest
 IMAGE_NAME ?= ghcr.io/chalyi/aws-apprunner-poc:$(IMAGE_TAG)
