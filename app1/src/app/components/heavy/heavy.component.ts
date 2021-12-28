@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
   GridReadyEvent,
@@ -16,8 +16,6 @@ export class HeavyComponent {
 
   columnDefs;
   defaultColDef;
-  rowData = [];
-
 
   constructor(private http: HttpClient) {
 
@@ -99,6 +97,7 @@ export class HeavyComponent {
   }
 
   onGridReady(params: GridReadyEvent) {
+    console.log("onGridReady");
 
     this.http
       .get('https://www.ag-grid.com/example-assets/olympic-winners.json')
