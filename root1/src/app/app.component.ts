@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { 
   Router, 
   Event, 
   NavigationEnd
 } from '@angular/router';
 
+import { getLCP, getFID, getCLS, Metric } from 'web-vitals';
+
+declare var gtag: any;
 
 @Component({
   selector: 'app-root',
@@ -14,7 +17,7 @@ import {
     'class': 'min-h-full'
   }
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Root App1';
   subtitle = '';
   description = '';
@@ -57,5 +60,19 @@ export class AppComponent {
   });
 
     
+  }
+  ngOnInit(): void {
+    function send(metric: Metric) {
+      gtag('event', metric.name, {
+        value: metric.delta,
+        metric_id: metric.id,
+        metric_value: metric.value,
+        metric_delta: metric.delta
+      });
+    }
+
+    getCLS(send);
+    getFID(send);
+    getLCP(send);
   }
 }
