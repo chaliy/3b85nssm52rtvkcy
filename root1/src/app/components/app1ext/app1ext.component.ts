@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <iframe 
       title="App1 External"
       width="100%"
-      height="100%" 
+      height="100%"
       src="https://chaliy.github.io/3b85nssm52rtvkcy/"></iframe>
   `,
   styles: [

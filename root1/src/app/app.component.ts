@@ -39,8 +39,8 @@ export class AppComponent implements OnInit {
     routerLink : '/app1-view'
   }, {
     title: 'App2',
-    subtitle: 'Nothing yet',
-    description: '',
+    subtitle: 'Example Kendo UI App',
+    description: 'Runs App2 with large part of Kendo UI (2.5MB of JS), loaded in IFRAME',
     routerLink : '/app2-view'
   }]
 

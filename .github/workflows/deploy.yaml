@@ -1,6 +1,9 @@
 name: Deploy
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -14,9 +17,17 @@ jobs:
         run: |
           npm ci
           npm run build -- --baseHref=/${{ github.event.repository.name }}/
+          cp -R dist/app1 ../pages/ 
 
-      - name: Deploy App1 🚀
+      - name: Install and Build App2 🔧
+        working-directory: ./app2
+        run: |
+          npm ci
+          npm run build -- --baseHref=/${{ github.event.repository.name }}/app2/
+          cp -R dist/app2 ../pages/app2
+
+      - name: Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: pages
-          folder: ./app1/dist/app1
+          folder: ./pages
