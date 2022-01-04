@@ -42,6 +42,11 @@ export class AppComponent implements OnInit {
     subtitle: 'Example Kendo UI App',
     description: 'Runs App2 with large part of Kendo UI (2.5MB of JS), loaded in IFRAME',
     routerLink : '/app2-view'
+  }, {
+    title: 'App3',
+    subtitle: 'Example Blazor WebAssembly',
+    description: 'Runs WebAssembly application compiled with Blazor, loaded in IFRAME',
+    routerLink : '/app3-view'
   }]
 
   constructor(private router: Router){

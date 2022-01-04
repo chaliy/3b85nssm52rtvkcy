@@ -40,4 +40,5 @@ app.include_router(api_router, prefix=settings.API_PREFIX)
 
 app.mount("/app1", SPAStaticFiles(directory=f"{settings.APP1_STATIC_BASE}"), name="app1")
 app.mount("/app2", SPAStaticFiles(directory=f"{settings.APP2_STATIC_BASE}"), name="app2")
+app.mount("/app3", SPAStaticFiles(directory=f"{settings.APP3_STATIC_BASE}"), name="app3")
 app.mount("/root1", SPAStaticFiles(directory=f"{settings.ROOT1_STATIC_BASE}"), name="root1")
